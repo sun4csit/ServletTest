@@ -1,0 +1,47 @@
+---To extract Month
+select TO_CHAR(TO_DATE(DECODE('AUG','AUG','SEP','AUG'),'MON'),'MM') from dual;
+To_DATE => 01-SEP-19
+DECODE => SEP
+TO_CHAR => 09
+
+---Second Highest Salary (use < or NOT IN)
+SELECT Max(salary) 
+FROM   employeesalary 
+WHERE  salary < 
+       ( 
+              SELECT Max(salary) 
+              FROM   employeesalary );
+	  
+--To get list of duplicate records of projectid
+SELECT   projectid, 
+         Count(*) AS cnt 
+FROM     employeesalary 
+GROUP BY projectid 
+HAVING   Count(projectid) > 1; 
+
+--Deleting duplicate records
+DELETE 
+FROM   employeesalary a 
+WHERE  ROWID != 
+       ( 
+              SELECT MIN(ROWID) 
+              FROM   employeesalary b 
+              WHERE  a.projectid = b.projectid );
+			OR
+DELETE FROM PRODUCT 
+WHERE ID NOT IN (
+SELECT MAX(ID) FROM PRODUCT GROUP BY CODE
+)
+
+--If annual salary is given and need to calculate monthly
+SELECT
+    empid,
+    Round(salary / 12) Month_Salary
+FROM
+    employeesalary;
+
+--Get First Record
+select * from employeesalary where rownum =1;
+
+--Use SET DEFINE OFF to insert special characters in script
+Eg &nbsp will expect a substitution variable in script.

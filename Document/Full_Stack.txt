@@ -1,0 +1,28 @@
+JAVA EE(Back-end)
+Extension of JAVA SE
+Simplify enterprise edition
+Simple programming model
+standard
+java Community process(JCP)
+Multiple implementaions : 1.Weblogic/Glassfish by Oracle 2.Tomcat by Apache 3.JBOSS and Wildfly by Redhat
+
+ANGULAR(Front-end)
+Javascript framework by Google
+Building front-end applications
+HTML More Expressive
+Powerful Data Binding
+Built-in Back-end communition
+TypeScript : 1.OpenSource PL 2.Superset of JS 3.Static Typing 4. OOP
+
+Maven - Open Source Describes how software is built and its dependencies. pom.xml
+mvn -DarchetypeGroupId=org.codehaus.mojo.archtypes -DarchetypeArtifactid=webapp-javaee7 -DarchetypeVersion=1.1
+-DgroupId=com.test.gettingstarted -DartifactId=bookstore-back -Dversion=1.0 -DarchetypeInteractive=false --batch-mode -Dpackage=com.demo.bookstore archetype:generate
+
+
+Applicatino Server - acts as Middleware to bring all services,database,persistance,configurations etc
+Start server : ./standAlone.sh
+Add User : ./addUsers.sh
+
+JUnit - Unit test framework for test Driven Development 
+Arquillian - Mock External dependencies for integration testing
+Execute test inside a container & User container dependencies and services. also support remote testing

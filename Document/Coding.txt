@@ -1,0 +1,15 @@
+
+https://www.logicbig.com/tutorials/java-ee-tutorial/java-servlet/auto-redirect-to-login-page-on-session-timeout.html
+https://coderanch.com/t/611948/java/Auto-redirect-session-timeout-page
+https://www.rgagnon.com/javadetails/java-request-delivery-read-receipt-in-javamail.html
+
+var timeOut = 1000 * 60 * 30; // 30 minutes
+ var lastActivity = new Date().getTime();
+ var checkTimeout;
+ checkTimeOut = function(){
+     if(new Date().getTime() > lastActivity + timeOut){
+         // redirect to timeout page
+     }else{
+         window.setTimeout(checkTimeOut, 1000); // check once per second
+     }
+ }

@@ -1,0 +1,19 @@
+What is cursor in DBMS?
+A cursor is a temporary work area created in the system memory when a SQL statement is executed. A cursor contains information on a select statement and the rows of data accessed by it. This temporary work area is used to store the data retrieved from the database, and manipulate this data
+
+Wy We Need Stored Procedures?
+When we want to execute SQL query from applications. the sql statements are first compiled and then executed
+which is time consuming processs and can impact the performance if query is big enough.
+to overcome this problem we write store procedures which are pre-compiled block of code that can be executed by calling the procedures therby increasing the performance of database and your applications
+whenever there is need to write same query again and again we can store that query in the form of stored procedure and can call it whenever required.
+
+IN/OUT Parameters
+Stored procedures parameters are of two types
+when you want to send value to database from your code in parameters brings value to the procedure whereas
+OUT parameters are used to send value from database after query execution and calculation
+
+Package:
+A package is a group of related procedures and functions, together with the cursors and variables they use, stored together in the database for continued use as a unit. Similar to standalone procedures and functions, packaged procedures and functions can be called explicitly by applications or users
+
+What is a foreign key with Cascade DELETE in Oracle?
+A foreign key with cascade delete means that if a record in the parent table is deleted, then the corresponding records in the child table will automatically be deleted. This is called a cascade delete in Oracle.

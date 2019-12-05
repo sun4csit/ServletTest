@@ -1,0 +1,103 @@
+Form based Authentication
+https://docs.oracle.com/javaee/5/tutorial/doc/bncbe.html#bncbq
+https://www.ibm.com/support/knowledgecenter/en/SSVHEW_6.2.0/com.ibm.rcp.tools.doc.appdev/webserv_definingsecurityroles.html
+
+NULL is an absence of a value. An empty string is a value, but is just empty.
+NULL has no bounds, it can be used for string, integer, date, etc. fields in a database.
+NULL isn't allocated any memory, the string with NULL value is just a pointer which is pointing to nowhere in memory. however, Empty IS allocated to a memory location, although the value stored in the memory is "".
+
+1) WAYS TO CREATE OBJECT IN JAVA
+A. Using New Keyword 
+MyObjetct obj = new MyObjetct(); //99% this is used
+
+B) Using Class.forName
+if you know the name of the class and it has default public constructor
+MyObjetct obj = (MyObjetct)Class.forName(demo.pkg.MyObjetct).newInstance(); //newInstance creates object
+
+C) Using Clone()
+MyObjetct anotherObj = new MyObjetct();
+MyObjetct obj = (MyObjetct)anotherObj.clone();
+
+D) Using Object Deserialization
+ObjectInputStream inStream = new ObjectInputStream(anInputStream);
+MyObjetct obj = (MyObjetct)inStream.readObject();
+
+2)CLONING CONCEPT
+Way to create exact copy of an object.
+Java.lang.Clonable Interface must be implemented and override the clone() method..throws CloneNotSupportedException
+Two types . Deep and Shallow(Default) Cloning
+Shallow - copying the reference pointer to the object and both point to same memory reference Hence Less memory usage
+Deep  - these object clones are independent of each other and High memory usage
+
+STACK
+LIFO(Last In First Out)
+Push - To Add an Element
+Pop  - To Remove An Element
+Peek - To Get Last Element Reference
+
+Fail-Fast iterators immediately throw ConcurrentModificationException if a collection is modified while iterating over it. Where as Fail-Safe iterators don’t throw any exceptions if a collection is modified while iterating over it. Because, they operate on the clone of the collection, not on the actual collection
+
+
+sudo apt install pkg_apk_name
+
+//This RecentActivity will be added using messages.add("RecentActivity",new ActionMessage())
+Iterator<ActionMessage> itr =messages.get("RecentActivity");
+boolean alreadyCalled = itr.hasNext(); // 
+if(!alreadyCalled){
+	somemethod();
+}
+
+MAVEN FIX
+1> Superclass not found  -- Check for project facets and tomcat
+2> Src/main/Java missing -- Check for Correct JRE Version
+
+RUN MAVEN FROM CMD with tomcat plugin
+locate your pom.xml and run below command
+mvn clean install tomcat7:run
+in mycase
+C:\Users\sunipatr\Desktop\Java-BookStore>c:\apache-maven-3.6.1\bin\mvn clean install tomcat7:run
+To Verify
+c:\Users\sunipatr\Desktop\Java-BookStore>c:\apache-maven-3.6.1\bin\mvn -P integration verify
+
+Servlet Specification
+System.out.println("Servlet Name :" + request.getServerName());
+System.out.println("Servlet port :" + request.getServerPort());
+System.out.println("Servlet Path :" + request.getServletPath()); or request.getPathInfo();
+System.out.println("Servlet session :" + request.getSession());
+System.out.println("Servlet Request URI :" + request.getRequestURI());
+System.out.println("Servlet Request URL :" + request.getRequestURL());
+System.out.println("Servlet Query String :" + request.getQueryString());
+
+Servlet Name :localhost
+Servlet port :8080
+Servlet Path :/testServlet
+Servlet Context :org.apache.catalina.session.StandardSessionFacade@5d069142
+Servlet Request URI :/SessionApp/testServlet
+Servlet Request URL :http://localhost:8080/SessionApp/testServlet
+Servlet Query String :null
+
+Annotations
+annotations, a form of metadata, provide data about a program that is not part of the program itself." 
+Annotations can be used anywhere in your code, i.e. within classes, methods, and variables. From Java 8, it can be used in type declaration as well.
+Creating an annotation requires two pieces of information: (1) a retention policy and (2) a target. A retention policy specifies how long, in terms of the program lifecycle, the annotation should be retained for. For example, annotations may be retained during compile-time or runtime
+The target of an annotation specifies which Java constructs an annotation can be applied to. For example, some annotations may be valid for methods only, while others may be valid for both classes and fields
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+
+URL ENCODING
+URLs can only be sent over the Internet using the ASCII character-set.
+
+JobDetail job = new JobDetail();
+		job.setName("Dummy Job");
+		job.setJobClass(HelloJob.class);
+
+		SimpleTrigger trigger = new SimpleTrigger();
+		trigger.setName("Demo Trigger");
+		trigger.setStartTime(new Date(System.currentTimeMillis() + 10000));
+		trigger.setRepeatCount(SimpleTrigger.REPEAT_INDEFINITELY);
+		trigger.setRepeatInterval(1000); // Repeat Every Second
+
+		Scheduler scheduler = new StdSchedulerFactory().getScheduler();
+		scheduler.start();
+		scheduler.scheduleJob(job, trigger);
+

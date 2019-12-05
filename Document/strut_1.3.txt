@@ -1,0 +1,31 @@
+Create a SuperFormBean extends ActionForm with private fields and getter/setter methods
+>Struts will auto load getter/setter methods based on ActionForm form, this form can contain param=value passed through URL 
+NOTE: param is field defined in SuperFormBean
+
+mapping.getName(); > Returns the name of class from which strut action got invoked
+
+STRUTS
+Root Cause : if no action mapping created or found in struts-config.xml
+org.apache.struts.chain.commands.InvalidPathException: No action config found for the specified url.
+
+if no class exist in action type="com.demo.common.action.HelloWorldAction"
+java.lang.ClassNotFoundException: com.demo.common.action.HelloWorldActiona
+
+if name is incorrect in action or does not exist for form bean
+java.lang.NullPointerException
+    com.demo.common.action.HelloWorldAction.execute(HelloWorldAction.java:19)
+
+<form-bean name="helloWorldForm" type="com.demo.common.form.HelloWorldForma" />
+java.lang.NullPointerException
+	org.apache.struts.config.FormBeanConfig.createActionForm(FormBeanConfig.java:289)
+
+If empty string found in ActionForward fwdAction; action=””;
+[org.apache.struts.action.ActionMapping] :77 - Unable to find '' forward.
+fwdAction = mapping.findForward(action);
+		saveMessages(request, messages);
+		return fwdAction;
+if Null then below error
+2019-06-17 17:11:48 WARN  [org.apache.struts.action.ActionMapping] :77 - Unable to find 'null' forward.
+
+ERROR: Resource key "error.Generic" not found in default bundle
+Ans ) Need to add error.Generic in ApplicationResources.properties before using in action classess
