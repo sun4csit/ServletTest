@@ -1,0 +1,24 @@
+RESTFUL WEB SERVICES
+
+JERSEY
+Jersey RESTful Web Services framework is open source, production quality, framework for developing RESTful Web Services in Java that provides support for JAX-RS APIs and serves as a JAX-RS (JSR 311 & JSR 339) Reference Implementation. Jersey framework is more than the JAX-RS Reference Implementation.
+
+REST
+Built on the principles Of Http
+To overcome limitations of SOAP
+
+C:\apache-maven-3.6.1\bin>mvn archetype:generate -DarchetypeGroupId=org.glassfish.jersey.archetypes -DarchetypeArtifactId=jersey-quickstart-webapp -DarchetypeVersion=2.2
+
+JSON(Javascript Object Notation)
+light weight and easy to work with hence widly used
+
+Exception
+MessageBodyWriter not found for media type=application/xml, type=class java.util.ArrayList, genericType=java.util.List<com.pluralsight.model.Activity>.
+FIX : @XmlRootElement in your model which need to be exposed
+
+POST Method is used to create a record
+Key to submitting data
+
+@Produce  -> defines what type of data method will produce as output
+@Consumes -> defines what type of data method will consume
+Data Type defined by MediaType.

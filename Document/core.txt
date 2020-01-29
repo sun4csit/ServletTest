@@ -1,0 +1,55 @@
+we use hashcode to optiomise performance when comparing objects. hashcode returns unique id for each object in your program 
+when two objects hashcode are not same then there's no need to execute equals method
+on the other hand when two hashcode are same you must also compare equal method 
+
+byte,char,short,int,float,long,double,boolean
+
+BigDecimal(If there are no performance constraint) or double
+System.gc() or Runtime.gc()
+InetAddress.getByName('').getHostName();
+
+Generics were introduced from java 5
+enables programmer to create classes and interface of their own data types
+Generics also provides type safety ensuring correct data type will be used for the operation
+class_name<data_type> reference = new class_name<data_type> ();
+Java has wrappers that encapsulates corresponding primitive type within an object
+
+Autoboxing (Primitive -> Wrapper) & Auto-unboxing (Wrapper - > Primitive)
+
+method overloading > return type doesn't matter and compiler directly gives warning
+it is distinguished based on the number of argument,type and order of argument
+
+Final(Unchangable)
+You can't extend final class
+you can't overload final method
+you can't change final variable
+
+COMPARABLE
+>Used to sort objects in Natural Ordering
+>Compares this reference with the object specified
+>present inside java.lang package
+>it modifies the original class
+>it has compareTo Method
+
+COMPARATOR
+>Used to sort attributes of Different objects
+>Compares two objects provided
+>present inside java.util package
+>it doesn;t modifies original class
+>It has compare and equals method
+
+WebService
+Facilitates Interaction between two different systems over a network
+All Web Services are API but all APIS are not necessarily need to be web service
+
+Application Programming Interface(API's)
+Interface between two application so that they can communication without user intervention and minimal configuration so it is light weight
+API does not need always network for communication while web service may need.
+
+Exception Handling
+Need to close Resource once it is opened and thats where Finally Statements comes in place since statements inside finally are always executed.
+Anytime we need to close a resource make sure it has valid reference
+if(res!=null) res.close();
+
+String
+Reference Based comparision are quite inexpensive whereas Character-By-Character Based comparision are very expensive particularly in very long string.

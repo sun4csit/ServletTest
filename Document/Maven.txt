@@ -1,0 +1,10 @@
+GOALS
+Clean   - Deletes the target directory and any of the generated sources
+Compile - For Compiling source code
+Package - To Build Package Distribution
+Install - Build Package and install it
+Deploy  - runs the install command and deploy to corporate or remote repository
+
+mvn clean compile install test
+
+mvn package -> To Package jar make sure to run mvn clean before crating package Build

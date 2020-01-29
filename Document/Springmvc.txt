@@ -1,0 +1,88 @@
+MVC Base
+https://github.com/bh5k/spring_mvc_base
+
+JPA - JAVA PERSISTANCE API
+
+Controller > Service >>> Repository's(DAO Layer)
+Spring Context
+Transitive dependencies are spring core,beans,expression,aop and jcl
+
+Spring Scopes and Autowiring
+Singleton(Defualt Scope and one instance per spring container)
+Prototype(New Bean per Request)
+Below are for Web aware Spring projects
+Request
+Global
+Session
+
+persistence.xml
+jpaContext.xml
+EntityManagerFactory -> LocalContainerEntityManagerFactoryBean 
+
+Download and install database
+add Maven Jars
+Created persistence.xml
+Added jpaContext.xml with entityManagerFactory and transactionManagerFactory & DataSource
+
+JPA OVerview and creating first Entity
+JPA is just a specification and there are multiple providers to use that
+now the question comes why not to use hibernate instead of using JPA
+Reason is what if you need to change your provider in future? and JPA Makes this Transition Seamless.
+
+Entity
+Plain Old Java Object 
+
+Dialect
+Dialect is what type or what vendor of database we are going against
+Dialect decides the configuration settings and Sql Query translation from generic to vendor specic
+
+javax.persistence.*
+Annotations
+tags that represents metadata
+it carries additional information that can be used with java classes,interfaces,methods or fields
+@Entity @Id
+@Table(name="goal")
+@Column(name="")
+
+@PersistenceContext
+Injects the entity manager in our code
+@Service
+Spring service where business logic is located
+@Repository
+Spring DAO Object, Where Database Transactions occurs
+@Transactional
+Used to start a transaction
+
+com.pluralsight.repository > GoalRepository | GoalRepositoryImpl
+Goal save(Goal goal);
+
+@PersistenceContext
+private EntityManager em;
+em.persist();
+em.flush();
+
+TransactionRequiredException : No Transaction is in progress
+Check to add @Transactional annotation and also for bean 
+
+Join Types
+@OneToOne
+@OneToMany - one to many relationship between object and list of objects
+@ManyToOne
+@ManyToMany
+
+@OneToMany(maappedBy="goal",cascade=CascadeType.ALL)
+private List<Exercise> exercises = new ArrayList<Exercise>();
+
+FetchType
+Lazy - Queries database when that property is called
+Eager- Queries database when Object is originally created
+
+JPQL is not SQL
+LazyInitialiazationException - Failed to Lazy initialize could not initialize proxy no session.
+
+Persist is used for insert though Merge can be used to udpate
+
+@Repository
+public interface ExerciseRepository extends JpaRepository<Exercise,Long>{
+	
+}
