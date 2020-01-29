@@ -88,16 +88,16 @@ URL ENCODING
 URLs can only be sent over the Internet using the ASCII character-set.
 
 JobDetail job = new JobDetail();
-		job.setName("Dummy Job");
-		job.setJobClass(HelloJob.class);
+job.setName("Dummy Job");
+job.setJobClass(HelloJob.class);
 
-		SimpleTrigger trigger = new SimpleTrigger();
-		trigger.setName("Demo Trigger");
-		trigger.setStartTime(new Date(System.currentTimeMillis() + 10000));
-		trigger.setRepeatCount(SimpleTrigger.REPEAT_INDEFINITELY);
-		trigger.setRepeatInterval(1000); // Repeat Every Second
+SimpleTrigger trigger = new SimpleTrigger();
+trigger.setName("Demo Trigger");
+trigger.setStartTime(new Date(System.currentTimeMillis() + 10000));
+trigger.setRepeatCount(SimpleTrigger.REPEAT_INDEFINITELY);
+trigger.setRepeatInterval(1000); // Repeat Every Second
 
-		Scheduler scheduler = new StdSchedulerFactory().getScheduler();
-		scheduler.start();
-		scheduler.scheduleJob(job, trigger);
+Scheduler scheduler = new StdSchedulerFactory().getScheduler();
+scheduler.start();
+scheduler.scheduleJob(job, trigger);
 
